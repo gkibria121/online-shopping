@@ -1,0 +1,52 @@
+nav{
+    background-color: rgb(239 239 239);
+    border-bottom: 5px solid rgb(177, 175, 175);
+    height: 47px;
+}
+.categroies{
+    position: fixed;
+    width: 100px;
+    left: 100px;
+
+}
+.trow{
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(126, 124, 124);
+}
+.card{
+    margin-top: 55px;
+    margin-left: 50px;
+}
+
+.category{
+    margin-right: 170px;
+}
+.cart-box{
+    border: 1px solid rgb(179, 173, 173);
+    border-radius: 3px;
+}
+.cart-image{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.cart-image-container{
+    width: 112px;
+}
+#count-cart{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: yellow;
+    margin-left: -20px;
+}
+.card-img-top{
+    width: 266px;
+    height: 238px;
+}
+.btn-submit{
+   border: 0;
+   height:0px ;
+
+}
