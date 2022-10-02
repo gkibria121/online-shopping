@@ -37,7 +37,7 @@
      @endforeach
     </div>
     <a href="/orders" class="btn btn-secondary">Go Back</a>
-     <a href="/orders/histroy/add/{{$order->id}}" class="btn btn-primary">Deliverd</a>
+     <a href="/orders/history/add/{{$order->id}}" class="btn btn-primary">Deliverd</a>
 
 
 

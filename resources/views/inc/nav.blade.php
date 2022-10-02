@@ -3,10 +3,12 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
+                @guest
+
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item my-3">
                         <a href="/" class="nav-link">Shope</a>
-                     {{-- <a href="/" class="nav-link"> Shope</a> --}}
+                        {{-- <a href="/" class="nav-link"> Shope</a> --}}
                     </li>
                     <li class="nav-item">
                         <form action="/cart" method="POST" id="add-to-cart">
@@ -17,11 +19,43 @@
                        </form>
                     </li>
                     <li class="nav-item my-3">
-
                         <div id='count-cart' data-amount=0>0</div>
                     </li>
-
-                  </ul>
+                </ul>
+                @else
+                @if(Auth::user()->role!='admin')
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item my-3">
+                        <a href="/" class="nav-link">Shope</a>
+                        {{-- <a href="/" class="nav-link"> Shope</a> --}}
+                    </li>
+                    <li class="nav-item">
+                        <form action="/cart" method="POST" id="add-to-cart">
+                            @csrf
+                            <div id="dynamic-inputs">
+                        </div>
+                        <button class="nav-link text-light my-1 mx-2 btn-submit" ><img src={{asset("img/cart.png")}} alt="" srcset="" style="width: 40px" id="cart" ></button>
+                       </form>
+                    </li>
+                    <li class="nav-item my-3">
+                        <div id='count-cart' data-amount=0>0</div>
+                    </li>
+                </ul>
+                @endif
+                @if(Auth::user()->role=='admin')
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item my-3">
+                        <a href="/orders" class="nav-link">Orders</a>
+                    </li>
+                    <li class="nav-item my-3">
+                       <a href="/orders/history"  class="nav-link">History</a>
+                    </li>
+                    <li class="nav-item my-3">
+                        <a href="/product" class="nav-link">Manage Products</a>
+                    </li>
+                </ul>
+                @endif
+                @endguest
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
@@ -29,13 +63,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
