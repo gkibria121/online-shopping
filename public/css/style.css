@@ -50,3 +50,9 @@ nav{
    height:0px ;
 
 }
+.summary{
+    float: right;
+    width: 30%;
+    border-radius: 3px;
+
+}

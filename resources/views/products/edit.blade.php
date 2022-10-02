@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <h1 class="my-3">Edit Product</h1>
-        <form action="/product" method="POST" enctype="multipart/form-data" class="my-3">
+        <form action="/product/{{$product->id}}" method="POST" enctype="multipart/form-data" class="my-3">
             @csrf
-            @method('post')
+            @method('put')
             <div class="mb-3">
                 <label for="text" class="form-label">Product Name</label>
                 <input type="text" class="form-control" name="name" value='{{$product->name}}'>

@@ -8,6 +8,11 @@ function addItem(id) {
         cartCountnav(1);
     }
     catch{}
+    try {
+        updateItemsForCheckOUt(id)
+    } catch (error) {
+
+    }
 
 
     document.getElementById('total-item-' + id).innerHTML = 1;
@@ -35,6 +40,11 @@ function addMoreItem(id) {
         cartCountnav(1)
     }
     catch{}
+    try {
+        updateItemsForCheckOUt(id)
+    } catch (error) {
+
+    }
 
 
 
@@ -53,8 +63,6 @@ function addLessItem(id) {
            elem.parentNode.removeChild(elem);
         }
         catch{}
-
-
         try{
             document.getElementById('item-in-the-cart-' + id).style.display = 'none';
             price= Number(document.getElementById('total-cost-for-item-'+id).getAttribute('data-price'));
@@ -67,6 +75,12 @@ function addLessItem(id) {
             cartCountnav(-1)
         }
         catch{}
+        try {
+           var elem = document.querySelector('#item-id-'+id);
+           elem.parentNode.removeChild(elem);
+        } catch (error) {
+
+        }
 
     }
     else {
@@ -93,6 +107,11 @@ function addLessItem(id) {
             cartCountnav(-1)
         }
         catch{}
+        try {
+            updateItemsForCheckOUt(id)
+        } catch (error) {
+
+        }
 
 
 
@@ -101,13 +120,13 @@ function addLessItem(id) {
 function totalCost(total){
     old = Number (document.getElementById('total-cost').getAttribute('data-total-cost'));
     document.getElementById('total-cost').setAttribute('data-total-cost',old+total);
-    console.log(document.getElementById('total-cost').getAttribute('data-total-cost'));
+    // console.log(document.getElementById('total-cost').getAttribute('data-total-cost'));
     document.getElementById('total-cost').innerHTML=old+total ;
 }
 function totalItems(update){
     old = Number (document.getElementById('total-items').getAttribute('data-total-items'));
     document.getElementById('total-items').setAttribute('data-total-items',old+update);
-    console.log(document.getElementById('total-cost').getAttribute('data-total-cost'));
+    // console.log(document.getElementById('total-cost').getAttribute('data-total-cost'));
     document.getElementById('total-items').innerHTML=old+update ;
     document.getElementById('count-cart').innerHTML=old+update ;
 }
@@ -133,6 +152,11 @@ function cartCountnav(update){
 }
 function navBtn(){
     document.getElementById('nav-btn').addEventListener('click',function(){
-        console.log('done');
+        // console.log('done');
     })
 }
+function updateItemsForCheckOUt(id) {
+    let count = Number(document.getElementById('total-item-' + id).getAttribute('data-total-item'));
+    console.log(id,count);
+ }
+

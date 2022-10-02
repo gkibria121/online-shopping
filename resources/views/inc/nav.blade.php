@@ -5,13 +5,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item my-3">
-                        <form action="/" class="nav-link" id="nav-form" method="POST">
-                            @csrf
-                            @method('post')
-                            <div type="submit" id="nav-btn">
-                                Shope
-                            </div>
-                        </form>
+                        <a href="/" class="nav-link">Shope</a>
                      {{-- <a href="/" class="nav-link"> Shope</a> --}}
                     </li>
                     <li class="nav-item">
@@ -70,12 +64,7 @@
     </nav>
 </div>
 <script>
-    function navBtn(){
-    document.getElementById('nav-btn').addEventListener('click',function(){
-       document.getElementById('nav-form').submit();
-    })
-}
 
- navBtn()
+
 </script>
 
